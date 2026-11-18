@@ -59,6 +59,22 @@ Use `--dataset bsd68` for the test set. `--skip bm3d` makes the benchmark much f
 | `src/noise_analysis.py` | noise-type classifier (impulse purity + brightness slope) and noise-level estimator |
 | `src/plots.py` | figures for the report and slides |
 
+## Current results
+
+Synthetic noise, noise level estimated blindly; mean PSNR over all 9 noise conditions.
+
+| | Set12 (validation) | BSD68 (test) |
+|---|---|---|
+| Best single fixed method | 25.86 dB (median) | 25.51 dB (adaptive median) |
+| Oracle hybrid: adaptive median / DnCNN / NLM | **29.35 dB (+3.48)** | **28.42 dB (+2.91)** |
+| Oracle hybrid with speckle → blind DnCNN | 29.91 dB (+4.04) | 29.11 dB (+3.60) |
+
+- DnCNN reproduces the published BSD68 results within 0.01 dB (`results/dncnn_sanity_check.md`).
+- Noise-type classifier: 99.8% accuracy on BSD68, 100% on unseen levels (`results/noise_classifier.md`).
+- Full tables: `results/set12_summary.md`, `results/bsd68_summary.md`; figures: `results/figures/`.
+- The BSD68 runtime columns were measured while other jobs shared the CPU; use the Set12 runtimes
+  until the laptop runtime benchmark is repeated.
+
 ## Conventions
 
 - Images are float in [0, 1]; Gaussian σ is given on the 0–255 scale.
