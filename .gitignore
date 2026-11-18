@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+data/
+pretrained/
+*.pth
+.DS_Store
+*.log
