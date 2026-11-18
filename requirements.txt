@@ -1,0 +1,10 @@
+numpy
+scipy
+opencv-python
+scikit-image
+PyWavelets
+bm3d
+numba
+pandas
+matplotlib
+torch
